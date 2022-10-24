@@ -1,4 +1,4 @@
-import {useLocation, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NutraData from './Work/NutraData.js';
 import Home from './Home.js';
