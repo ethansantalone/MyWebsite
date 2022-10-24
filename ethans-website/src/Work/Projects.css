@@ -1,0 +1,72 @@
+.Project {
+  min-height: 100vh;
+  /* min-height: 110vh; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+  background-color: rgb(23, 21, 21);
+  color: white;
+  padding-top: 60px;
+
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgb(23, 21, 21) 100%); */
+}
+
+.Project-nutradata-parent {
+  background: linear-gradient(to right, #BA1B1D, #0D1F2D);
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+}
+
+.Project-nutradata-logo {
+  height: 200px;
+}
+
+.Project-hawks-logo {
+  height: 400px;
+}
+
+.Project-lehigh-logo {
+  height: 500px;
+}
+
+.Project-content {
+  width: 500px;
+  margin-top: 30px;
+  font-size: 12pt;
+  text-align: left;
+  line-height: 30px;
+  color: lightgray;
+}
+
+.Project-return {
+  display: flex;
+  margin: 40px;
+  margin-bottom: 80px;
+  width: 170px;
+  height: 50px;
+  background-color: rgb(219, 147, 64);
+  font-size: 12pt;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.Project-return:hover {
+  background-color: rgb(182, 121, 52);
+  cursor: pointer;
+}
+
+a:link {
+  color: rgb(219, 147, 64);
+}
+
+a:visited {
+  color: rgb(182, 121, 52);
+}
