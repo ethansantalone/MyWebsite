@@ -19,7 +19,7 @@ function NutraData(props) {
                 <br />
                 I built an administrative user interface for their dietary supplement tracking system. Its components provided the abilities to manually insert, update, and disable database products. 
                 It also provided the ability to download products from the National Institute of Health's Dietary Supplement Label Database (DSLD). 
-                This functionality was fully automated through the creation of a script that generated scalable self-terminating EC2 instances. These instances would
+                This functionality was fully automated through the creation of a script that generated scalable self-terminating AWS Elastic Compute Cloud instances. These instances would
                 update any current products that had been modified in the DSLD, insert any new products, ensure the latest versions of each product was stored, all while not modifying any disabled products. 
                 Any currently running instance could have its status checked, and cancelled if need be. 
                 Following the completion of a full download, various metrics would be stored, and could be displayed on the website.

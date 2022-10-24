@@ -52,7 +52,7 @@ function Work(props) {
                 <div className="projects-item" onClick={() => { window.location = "/work/teachingassistant" }}>
                     <div className="projects-item-caption">
                         <h4 className="projects-item-caption-type">
-                            Job / Internship
+                            Job
                         </h4>
                         <h1 className="projects-item-caption-header">
                             Software Engineering Teaching Assistant
