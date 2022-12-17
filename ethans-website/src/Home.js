@@ -2,7 +2,7 @@ import nutradata_logo from './assets/nutradata_logo.png';
 import hungry_hawks_image from './assets/hungry_hawks_image.jpeg';
 // import carina_nebula_image from './carina_nebula.png';
 import lehigh_image from './assets/lehigh_logo.png';
-import new_self_portrait from './assets/self_portrait.jpeg';
+import new_self_portrait from './assets/Ethan_headshot_1.jpg';
 import instagram_icon from './assets/instagram_icon.png';
 import linkedin_icon from './assets/linkedin_icon.png';
 import './App.css';
