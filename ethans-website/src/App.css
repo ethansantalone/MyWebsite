@@ -44,7 +44,20 @@
   object-fit:cover;
   z-index: -1;
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .App-header-portrait {
+  animation: .7s ease-out 0s 1 slideInFromLeft;
   height: 450px;
   min-width: 450px;
   margin: 20px;
@@ -60,6 +73,17 @@
   height: 450px;
   width: 450px;
 }
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(40%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 .App-header-description {
   display: flex;
   flex-direction: column;
@@ -68,22 +92,36 @@
   color: white;
 }
 .App-header-description-hello {
+  animation: .5s ease-out 0s 1 slideInFromRight;
   font-size: 27pt;
   font-weight: 600;
 }
 .App-header-description-name {
+  animation: .6s ease-out 0s 1 slideInFromRight;
   position: relative;
   left: -5px;
   font-size: 87pt;
   font-weight: 600;
 }
 .App-header-description-period {
+  animation: .6s ease-out 0s 1 slideInFromRight;
   font-size: 80pt;
   font-weight: 600;
   color: rgb(219, 147, 64);
 }
 
+@keyframes slideInFromRightContent {
+  0% {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 .App-header-description-content {
+  animation: .8s ease-out 0s 1 slideInFromRightContent;
   width: 300px;
   font-size: 16pt;
   text-align: left;
@@ -108,14 +146,50 @@
   justify-content: center;
   
 }
-.App-header-description-links-individual{
+
+@keyframes slideInFromRightIcons {
+  0% {
+    transform: translateX(500%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.App-header-description-links-individual1{
+  width: 42px;
+  animation: 1s ease-out 0s 1 slideInFromRightIcons;
   margin-right: 20px;
   transition: 0.3s ease-in-out;
 }
-.App-header-description-links-individual:hover{
+.App-header-description-links-individual1:hover{
   cursor: pointer;
   transform: scale(1.15);
 }
+
+.App-header-description-links-individual2{
+  width: 42px;
+  animation: 1.1s ease-out 0s 1 slideInFromRightIcons;
+  margin-right: 20px;
+  transition: 0.3s ease-in-out;
+}
+.App-header-description-links-individual2:hover{
+  cursor: pointer;
+  transform: scale(1.15);
+}
+
+.App-header-description-links-individual3{
+  width: 42px;
+  animation: 1.2s ease-out 0s 1 slideInFromRightIcons;
+  margin-right: 20px;
+  transition: 0.3s ease-in-out;
+}
+.App-header-description-links-individual3:hover{
+  cursor: pointer;
+  transform: scale(1.15);
+}
+
 .github {
   fill: white;
   width: 37px;
