@@ -25,7 +25,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - name: Install dependencies
     #Using npm ci is generally faster than running npm install
       run: |
