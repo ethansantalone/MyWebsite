@@ -6,10 +6,13 @@ import new_self_portrait from './assets/Ethan_headshot_1.jpg';
 import instagram_icon from './assets/instagram_icon.png';
 import linkedin_icon from './assets/linkedin_icon.png';
 import './App.css';
+import { useEffect } from 'react';
 
 function Home(props) {
 
-    props.parentCallback(true);
+    useEffect(() => {
+        props.parentCallback(true);
+    }, []);
 
     return (
         <div>
