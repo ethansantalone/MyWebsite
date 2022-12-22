@@ -12,7 +12,8 @@ function Home(props) {
 
     useEffect(() => {
         props.parentCallback(true);
-    }, []);
+    }); 
+    //not using second argument, will want to look into signifigance of this
 
     return (
         <div>
