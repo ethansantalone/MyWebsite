@@ -6,9 +6,22 @@ import new_self_portrait from './assets/Ethan_headshot_1.jpg';
 import instagram_icon from './assets/instagram_icon.png';
 import linkedin_icon from './assets/linkedin_icon.png';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState, useMemo} from 'react';
 
 function Home(props) {
+
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+    const ref3 = useRef(null);
+
+    const isInViewport1 = useIsInViewport(ref1);
+    console.log('isInViewport1: ', isInViewport1);
+
+    const isInViewport2 = useIsInViewport(ref2);
+    console.log('isInViewport2: ', isInViewport2);
+
+    const isInViewport3 = useIsInViewport(ref3);
+    console.log('isInViewport3: ', isInViewport3);
 
     useEffect(() => {
         props.parentCallback(true);
@@ -46,7 +59,7 @@ function Home(props) {
             </div>
             <div className="projects-container">
                 <h1 className="projects-title">Recent Projects</h1>
-                <div className="projects-item" onClick={() => { window.location = "/work/nutradata" }}>
+                <div ref={ref1} className="projects-item" onClick={() => { window.location = "/work/nutradata" }}>
                     <div className="projects-item-caption">
                         <h4 className="projects-item-caption-type">
                             Job / Internship
@@ -65,7 +78,7 @@ function Home(props) {
                         </div>
                     </div>
                 </div>
-                <div className="projects-item" onClick={() => { window.location = "/work/hungryhawks" }}>
+                <div ref={ref2} className="projects-item" onClick={() => { window.location = "/work/hungryhawks" }}>
                     <div className="projects-item-caption">
                         <h4 className="projects-item-caption-type">
                             Technical Project
@@ -82,7 +95,7 @@ function Home(props) {
                         <img className="hawks-logo" src={hungry_hawks_image} alt="hungry_hawks_image" />
                     </div>
                 </div>
-                <div className="projects-item" onClick={() => { window.location = "/work/teachingassistant" }}>
+                <div ref={ref3} className="projects-item" onClick={() => { window.location = "/work/teachingassistant" }}>
                     <div className="projects-item-caption">
                         <h4 className="projects-item-caption-type">
                             Job
@@ -104,6 +117,28 @@ function Home(props) {
             </div>
         </div>
     );
+}
+
+function useIsInViewport(ref) {
+    const [isIntersecting, setIsIntersecting] = useState(false);
+  
+    const observer = useMemo(
+      () =>
+        new IntersectionObserver(([entry]) =>
+          setIsIntersecting(entry.isIntersecting),
+        ),
+      [],
+    );
+  
+    useEffect(() => {
+      observer.observe(ref.current);
+  
+      return () => {
+        observer.disconnect();
+      };
+    }, [ref, observer]);
+  
+    return isIntersecting;
 }
 
 export default Home;
