@@ -6,30 +6,24 @@ import new_self_portrait from './assets/Ethan_headshot_1.jpg';
 import instagram_icon from './assets/instagram_icon.png';
 import linkedin_icon from './assets/linkedin_icon.png';
 import './App.css';
-import { useEffect, useRef, useState, useMemo} from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 
 function Home(props) {
 
     const ref1 = useRef(null);
     const ref2 = useRef(null);
     const ref3 = useRef(null);
-
     const isInViewport1 = useIsInViewport(ref1);
-    console.log('isInViewport1: ', isInViewport1);
-
     const isInViewport2 = useIsInViewport(ref2);
-    console.log('isInViewport2: ', isInViewport2);
-
     const isInViewport3 = useIsInViewport(ref3);
-    console.log('isInViewport3: ', isInViewport3);
 
     useEffect(() => {
         props.parentCallback(true);
-    }); 
+    });
     //not using second argument, will want to look into signifigance of this
 
     return (
-        <div>
+        <div className="Home">
             <div className="App-header">
                 {/* <img src={carina_nebula_image} className="App-header-img" alt="Carina_Nebula"/> */}
                 {/* <img src={logo} className="App-logo" alt="logo" /> */}
@@ -57,61 +51,71 @@ function Home(props) {
                 </div>
                 {/* <div className="App-header-fade"></div> */}
             </div>
+
             <div className="projects-container">
+
                 <h1 className="projects-title">Recent Projects</h1>
-                <div ref={ref1} className="projects-item" onClick={() => { window.location = "/work/nutradata" }}>
-                    <div className="projects-item-caption">
-                        <h4 className="projects-item-caption-type">
-                            Job / Internship
-                        </h4>
-                        <h1 className="projects-item-caption-header">
-                            NutraData
-                        </h1>
-                        <div className="projects-item-caption-description">
-                            Full-Stack Software Engineering intern. Developed administrative functionality and resolved critical database issues.
+                <div className={isInViewport1 ? "projects-animation" : "projects-invisible"}>
+                    <div ref={ref1} className="projects-item" onClick={() => { window.location = "/work/nutradata" }}>
+                        <div className="projects-item-caption">
+                            <h4 className="projects-item-caption-type">
+                                Job / Internship
+                            </h4>
+                            <h1 className="projects-item-caption-header">
+                                NutraData
+                            </h1>
+                            <div className="projects-item-caption-description">
+                                Full-Stack Software Engineering intern. Developed administrative functionality and resolved critical database issues.
+                            </div>
+                            <div className="projects-item-caption-more">Learn more</div>
                         </div>
-                        <div className="projects-item-caption-more">Learn more</div>
+                        <div className="projects-item-img">
+                            <div className="nutradata-parent">
+                                <img className="nutradata-logo" src={nutradata_logo} alt="nutradata_logo" />
+                            </div>
+                        </div>
                     </div>
-                    <div className="projects-item-img">
-                        <div className="nutradata-parent">
-                            <img className="nutradata-logo" src={nutradata_logo} alt="nutradata_logo" />
+                </div>
+
+                <div className={isInViewport2 ? "projects-animation" : "projects-invisible"}>
+                    <div ref={ref2} className="projects-item" onClick={() => { window.location = "/work/hungryhawks" }}>
+                        <div className="projects-item-caption">
+                            <h4 className="projects-item-caption-type">
+                                Technical Project
+                            </h4>
+                            <h1 className="projects-item-caption-header">
+                                Hungry Hawks
+                            </h1>
+                            <div className="projects-item-caption-description">
+                                Front end developer for application that provides Lehigh students with access to leftover food around campus. Addressing food insecurity in partnership with Office of Sustainability.
+                            </div>
+                            <div className="projects-item-caption-more">Learn more</div>
+                        </div>
+                        <div className="projects-item-img">
+                            <img className="hawks-logo" src={hungry_hawks_image} alt="hungry_hawks_image" />
                         </div>
                     </div>
                 </div>
-                <div ref={ref2} className="projects-item" onClick={() => { window.location = "/work/hungryhawks" }}>
-                    <div className="projects-item-caption">
-                        <h4 className="projects-item-caption-type">
-                            Technical Project
-                        </h4>
-                        <h1 className="projects-item-caption-header">
-                            Hungry Hawks
-                        </h1>
-                        <div className="projects-item-caption-description">
-                            Front end developer for application that provides Lehigh students with access to leftover food around campus. Addressing food insecurity in partnership with Office of Sustainability.
+                <div className={isInViewport3 ? "projects-animation" : "projects-invisible"}>
+                    <div ref={ref3} className="projects-item" onClick={() => { window.location = "/work/teachingassistant" }}>
+                        <div className="projects-item-caption">
+                            <h4 className="projects-item-caption-type">
+                                Job
+                            </h4>
+                            <h1 className="projects-item-caption-header">
+                                Software Engineering Teaching Assistant
+                            </h1>
+                            <div className="projects-item-caption-description">
+                                Mentoring teams in the development of an Agile full stack project by leading team meetings, ensuring best practices, suggesting software implementations, and helping debug code.
+                            </div>
+                            <div className="projects-item-caption-more">Learn more</div>
                         </div>
-                        <div className="projects-item-caption-more">Learn more</div>
-                    </div>
-                    <div className="projects-item-img">
-                        <img className="hawks-logo" src={hungry_hawks_image} alt="hungry_hawks_image" />
-                    </div>
-                </div>
-                <div ref={ref3} className="projects-item" onClick={() => { window.location = "/work/teachingassistant" }}>
-                    <div className="projects-item-caption">
-                        <h4 className="projects-item-caption-type">
-                            Job
-                        </h4>
-                        <h1 className="projects-item-caption-header">
-                            Software Engineering Teaching Assistant
-                        </h1>
-                        <div className="projects-item-caption-description">
-                            Mentoring teams in the development of an Agile full stack project by leading team meetings, ensuring best practices, suggesting software implementations, and helping debug code.
+                        <div className="projects-item-img">
+                            <div className="nutradata-parent">
+                                <img className="hawks-logo" src={lehigh_image} alt="lehigh_image" />
+                            </div>
                         </div>
-                        <div className="projects-item-caption-more">Learn more</div>
-                    </div>
-                    <div className="projects-item-img">
-                        <div className="nutradata-parent">
-                            <img className="hawks-logo" src={lehigh_image} alt="lehigh_image" />
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -121,23 +125,23 @@ function Home(props) {
 
 function useIsInViewport(ref) {
     const [isIntersecting, setIsIntersecting] = useState(false);
-  
+
     const observer = useMemo(
-      () =>
-        new IntersectionObserver(([entry]) =>
-          setIsIntersecting(entry.isIntersecting),
-        ),
-      [],
+        () =>
+            new IntersectionObserver(([entry]) =>
+                setIsIntersecting(entry.isIntersecting),
+            ),
+        [],
     );
-  
+
     useEffect(() => {
-      observer.observe(ref.current);
-  
-      return () => {
-        observer.disconnect();
-      };
+        observer.observe(ref.current);
+
+        return () => {
+            observer.disconnect();
+        };
     }, [ref, observer]);
-  
+
     return isIntersecting;
 }
 
