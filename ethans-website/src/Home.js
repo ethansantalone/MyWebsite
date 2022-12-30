@@ -6,7 +6,9 @@ import new_self_portrait from './assets/Ethan_headshot_1.jpg';
 import instagram_icon from './assets/instagram_icon.png';
 import linkedin_icon from './assets/linkedin_icon.png';
 import './App.css';
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { useEffect, useRef, useState} from 'react';
+
+import useIsInViewport from './useIsInViewport';
 
 function Home(props) {
 
@@ -133,27 +135,6 @@ function Home(props) {
             </div>
         </div>
     );
-}
-
-function useIsInViewport(ref) {
-    const [isIntersecting, setIsIntersecting] = useState(false);
-
-    const observer = useMemo(
-        () =>
-            new IntersectionObserver(([entry]) =>
-                setIsIntersecting(entry.isIntersecting),
-            ),
-        [],
-    );
-
-    useEffect(() => {
-        observer.observe(ref.current);
-        return () => {
-            observer.disconnect();
-        };
-    }, [ref, observer]);
-
-    return isIntersecting;
 }
 
 export default Home;

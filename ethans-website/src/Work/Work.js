@@ -4,7 +4,9 @@ import hungry_hawks_image from '../assets/hungry_hawks_image.jpeg';
 import lehigh_image from '../assets/lehigh_logo.png';
 import '../App.css';
 
-import { useEffect, useRef, useState, useMemo } from 'react';
+import {useRef, useState} from 'react';
+
+import useIsInViewport from '../useIsInViewport';
 
 function Work(props) {
 
@@ -100,27 +102,6 @@ function Work(props) {
             </div>
         </div>
     );
-}
-
-function useIsInViewport(ref) {
-    const [isIntersecting, setIsIntersecting] = useState(false);
-
-    const observer = useMemo(
-        () =>
-            new IntersectionObserver(([entry]) =>
-                setIsIntersecting(entry.isIntersecting),
-            ),
-        [],
-    );
-
-    useEffect(() => {
-        observer.observe(ref.current);
-        return () => {
-            observer.disconnect();
-        };
-    }, [ref, observer]);
-
-    return isIntersecting;
 }
 
 export default Work;
