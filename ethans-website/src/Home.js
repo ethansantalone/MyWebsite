@@ -16,6 +16,18 @@ function Home(props) {
     const isInViewport1 = useIsInViewport(ref1);
     const isInViewport2 = useIsInViewport(ref2);
     const isInViewport3 = useIsInViewport(ref3);
+    const [animateRef1, setAnimateRef1] = useState(false);
+    const [animateRef2, setAnimateRef2] = useState(false);
+    const [animateRef3, setAnimateRef3] = useState(false);
+    if(isInViewport1 && !animateRef1){
+        setAnimateRef1(isInViewport1);
+    }
+    if(isInViewport2 && !animateRef2){
+        setAnimateRef2(isInViewport2);
+    }
+    if(isInViewport3 && !animateRef3){
+        setAnimateRef3(isInViewport3);
+    }
 
     useEffect(() => {
         props.parentCallback(true);
@@ -55,7 +67,7 @@ function Home(props) {
             <div className="projects-container">
 
                 <h1 className="projects-title">Recent Projects</h1>
-                <div className={isInViewport1 ? "projects-animation" : "projects-invisible"}>
+                <div className={animateRef1 ? "projects-animation" : "projects-invisible"}>
                     <div ref={ref1} className="projects-item" onClick={() => { window.location = "/work/nutradata" }}>
                         <div className="projects-item-caption">
                             <h4 className="projects-item-caption-type">
@@ -77,7 +89,7 @@ function Home(props) {
                     </div>
                 </div>
 
-                <div className={isInViewport2 ? "projects-animation" : "projects-invisible"}>
+                <div className={animateRef2 ? "projects-animation" : "projects-invisible"}>
                     <div ref={ref2} className="projects-item" onClick={() => { window.location = "/work/hungryhawks" }}>
                         <div className="projects-item-caption">
                             <h4 className="projects-item-caption-type">
@@ -96,7 +108,7 @@ function Home(props) {
                         </div>
                     </div>
                 </div>
-                <div className={isInViewport3 ? "projects-animation" : "projects-invisible"}>
+                <div className={animateRef3 ? "projects-animation" : "projects-invisible"}>
                     <div ref={ref3} className="projects-item" onClick={() => { window.location = "/work/teachingassistant" }}>
                         <div className="projects-item-caption">
                             <h4 className="projects-item-caption-type">
@@ -136,7 +148,6 @@ function useIsInViewport(ref) {
 
     useEffect(() => {
         observer.observe(ref.current);
-
         return () => {
             observer.disconnect();
         };

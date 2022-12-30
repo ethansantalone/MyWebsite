@@ -7,7 +7,7 @@ function NutraData(props) {
     props.parentCallback(false);
 
     return (
-        <div class="Project">
+        <div className="Project">
             <h2>NutraData</h2>
             <div className="Project-nutradata-parent">
                 <img className="Project-nutradata-logo" src={nutradata_logo} alt="nutradata_logo" />
@@ -29,7 +29,7 @@ function NutraData(props) {
                 During the course of my internship I also identified critical database issues that rendered the site almost entirely unusable. 
                 I swiftly developed a feature to iterate through all products to correct the data inaccuracies, which modified nearly 70% of the current data.
             </div>
-            <div class="Project-return" onClick={() => { window.location = "/work" }}>
+            <div className="Project-return" onClick={() => { window.location = "/work" }}>
                 See other work
             </div>
         </div>

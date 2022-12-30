@@ -6,7 +6,7 @@ function TeachingAssistant(props) {
     props.parentCallback(false);
 
     return (
-        <div class="Project">
+        <div className="Project">
         <h2>Teaching Assistant</h2>
         <img className="Project-lehigh-logo" src={lehigh_image} alt="lehigh_logo" />
         <div className="Project-content">
@@ -20,7 +20,7 @@ function TeachingAssistant(props) {
             <br />
             Helping others and being a leader has always been something I enjoy. I once was an eagle scout, and I still carry on the same leadership qualities. I find it rewarding to assist and advise students early in their academic career, while also learning new things from them.
         </div>
-        <div class="Project-return" onClick={() => { window.location = "/work" }}>
+        <div className="Project-return" onClick={() => { window.location = "/work" }}>
             See other work
         </div>
     </div>

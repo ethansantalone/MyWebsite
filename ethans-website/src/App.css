@@ -307,7 +307,7 @@
   }
 }
 .projects-animation{
-  animation: 1s ease-out 0s 1 slideInFromRightProjects;
+  animation: .75s ease-out 0s 1 slideInFromRightProjects;
 }
 .projects-invisible{
   opacity: 0;

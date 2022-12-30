@@ -6,7 +6,7 @@ function HungryHawks(props) {
     props.parentCallback(false);
 
     return (
-        <div class="Project">
+        <div className="Project">
             <h2>Hungry Hawks</h2>
             <img className="Project-hawks-logo" src={hungry_hawks_image} alt="hungry_hawks_logo" />
             <div className="Project-content">
